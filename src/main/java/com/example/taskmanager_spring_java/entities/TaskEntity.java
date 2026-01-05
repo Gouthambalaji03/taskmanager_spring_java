@@ -1,14 +1,23 @@
+
 package com.example.taskmanager_spring_java.entities;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
-import java.util.Date;
-
+@Entity
+@Table(name = "tasks")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TaskEntity {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String title;
     private String description;
-    private Date dealline;
+    private LocalDate deadline;
     private boolean completed;
 }
